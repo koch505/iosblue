@@ -1,0 +1,68 @@
+---
+layout: default
+---
+    <!-- Main content -->
+
+    <section id="intro">
+      <div class="page-header">
+        <h1>ISOBUS Message Logs</h1>
+        <p>We'll be posting all our raw ISOBUS message logs here, with information about the 
+        tractor and situation they came from.  Please <a href="mailto:info@isoblue.org">send us your log files</a>
+        and we'll post them here for fellow travelers.</p>
+        <p>In the near future, we're going to turn this into a query-able database.  For now, we'll post files
+        here while we get a better handle on the metadata we'll have available to identify various traces.</p>
+      </div>
+    </section>
+
+    <section id="cnh">
+      <div class="page-header">
+        <h2>CNH Equipment</h2>
+        
+        <hr>
+        <div class="row well">
+          <h3>2011 Case 6088 Combine</h3>
+        
+          <p>
+            <a href="data/2013-10-29_Case6088.zip">2013-10-29_Case6088.zip</a>: 
+            Each of the files in this zipfile that end with ".db" are simple SQLite database
+            files.  You can read a SQLite database file using the sqlite3 command-line shell
+            found <a href="http://www.sqlite.org/download.html">here</a>. These files were copied 
+            directly from the SD card on an Android tablet which was running the ISOBlue demo app.
+          </p><p>
+            
+            These files were all collected from a 2011 Case 6088 combine.  The filenames indicate
+            the special condition under which each was collected.  They mean:
+            <ul>
+              <li>isobus_messages-173-bu.db: the total bushels logged by the calibrated combine monitor during
+                  this run was 173.</li>
+              
+              <li>isobus_messages-301-bu.db: the total bushels logged by the calibrated combine monitor during
+                  this run was 301.</li>
+              
+              <li>isobus_messages-94-bu.db: the total bushels logged by the calibrated combine monitor during
+                  this run was 94.</li>
+              
+              <li>isobus_messages-moist-un.db: the moisture sensor was unplugged from the CAN bus during
+                  this run.</li>
+              
+              <li>isobus_messages-moist-re.db: the moisture sensor was plugged back in to the CAN bus during
+                  this run.</li>
+              
+              <li>isobus_messages-yield-un.db: the yield sensor was unplugged from the CAN bus during
+                  this run.</li>
+              
+              <li>isobus_messages-yield-re.db: the yield sensor was plugged back in to the CAN bus during
+              this run.</li>
+            </ul>
+          </p>
+        </div>
+        <hr>
+        <div class="row well">
+          <p>
+            <h5>2008 Case 8010 Combine</h5>
+            Data coming soon!
+            </p>
+        </div>
+
+      </div>
+    </section>

@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<section id="post">
+  <div class="page-header">
+    <div id="blog_block" class="row">
+        <a href="/posts.html">Other recent posts</a>
+        <h3>{{page.title}}</h3>
+        {{page.date | date: "%B %-d, %Y" }}
+        {{page.content | markdownify}}
+        <a href="{{site.url}}{{post.url}}">Permalink</a>
+        <hr />
+    </div>
+  </div>
+</section>

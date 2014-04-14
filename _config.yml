@@ -1,0 +1,13 @@
+name: ISOBlue
+timezone: America/New_York
+url: http://isoblue.github.io
+permalink: /posts/:year/:month/:title
+description: Forwarding ISOBUS messages over Bluetooth.
+keywords:
+    - ISOBlue
+    - ISOBUS
+    - Bluetooth
+    - Beagle Bone Black
+authors:
+    - Aaron Ault
+    - Andrew Balmos

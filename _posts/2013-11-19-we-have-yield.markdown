@@ -4,35 +4,35 @@ title: We Have Yield!
 date: 2013-11-19
 excerpt: We can now get yield from a Case (Ag Leader) mass flow sensor over ISOBUS.
 ---
+<div class="row" markdown="block">
+<div class="span6" markdown="block">
+The Holy Grail for ISOBlue has been to get yield and moisture data in
+real-time, and forward it over Bluetooth.  We are partially there: we have
+yield!  Using a calibrated yield monitor on the Case 6088, we logged data 
+for several runs and kept track of the wet bushels of corn that the monitor
+tallied for each run.
 
-+-- {.row}
-|+-- {.span6}
-||The Holy Grail for ISOBlue has been to get yield and moisture data in
-||real-time, and forward it over Bluetooth.  We are partially there: we have
-||yield!  Using a calibrated yield monitor on the Case 6088, we logged data 
-||for several runs and kept track of the wet bushels of corn that the monitor
-||tallied for each run.
-||
-||The yield messages come through in PGN 65488.  The first two bytes represent
-||the mass flow (yield), and can be interpreted as little-endian integers.
-||We summed them up for each run, and then divided the monitor's wet bushel 
-||total by this sum to get a scaling factor.  We then used the same scaling 
-||factor for subsequent runs and compared the results to the monitor's wet 
-||bushel total for each run. The scaling factor for that particular combine 
-||turned out to be 1.895e-05. 
-||
-||The resulting numbers are very close as you can see in the graph to the right:
-||
-||-   0.6%, 
-||-   0.8%, 
-||-   and -0.3%
-||
-||difference from the monitor tally.
-|+--
-|+-- {.span6}
-||![Yield Scaling Factor](/images/yield_scaling_factor.png)
-|+--
-+--
+The yield messages come through in PGN 65488.  The first two bytes represent
+the mass flow (yield), and can be interpreted as little-endian integers.
+We summed them up for each run, and then divided the monitor's wet bushel 
+total by this sum to get a scaling factor.  We then used the same scaling 
+factor for subsequent runs and compared the results to the monitor's wet 
+bushel total for each run. The scaling factor for that particular combine 
+turned out to be 1.895e-05. 
+
+The resulting numbers are very close as you can see in the graph to the right:
+
+-   0.6%, 
+-   0.8%, 
+-   and -0.3%
+
+difference from the monitor tally.
+</div>
+<div class="span6" markdown="block">
+![Yield Scaling Factor](/images/yield_scaling_factor.png)
+</div>
+</div>
+
 We're not sure exactly why we're getting such a small deviation, but for now
 we're happy to get less than 1% error from a calibrated yield.
 

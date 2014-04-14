@@ -1,6 +1,9 @@
 name: ISOBlue
+markdown: kramdown
+pygments: true
 timezone: America/New_York
-url: http://isoblue.github.io
+#url: http://isoblue.github.io
+url: http://localhost:4000
 permalink: /posts/:year/:month/:title
 description: Forwarding ISOBUS messages over Bluetooth.
 keywords:

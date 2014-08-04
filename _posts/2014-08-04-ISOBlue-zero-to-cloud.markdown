@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ISOBlue Setup: From zero to "In the Cloud" in less than 4 minutes
+title: ISOBlue Setup - From zero to "In the Cloud" in less than 4 minutes
 date: 2014-08-04
 excerpt: Video of creating and then demoing an ISOBlue
 ---

@@ -7,7 +7,7 @@ excerpt: How to get centimeter-level accuracy on your ISOBlue device.
 <div class="row" markdown="block">
 <div class="span6" markdown="block">
 
-As mentioned in [our previous post][2014-04-14-RTK-GPS-Under-00-Works], we have gotten RTK GPS
+As mentioned in [our previous post]({% post_url 2014-04-14-RTK-GPS-Under-00-Works %}), we have gotten RTK GPS
 working on ISOBlue with an [NVS NV08C-CSM-BRD](http://www.nvs-gnss.com/products/receivers/item/36-nv08c-csm-brd.html) receiver
 which only costs about $64 for an evaluation board.  
 

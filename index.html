@@ -82,7 +82,7 @@ layout: default
     <section id="isoblue">
       <div class="page-header">
         <div class="row">
-          <h1>ISBlue</h1> 
+          <h1>ISOBlue</h1> 
           <div class="span8">
             <p> The tutorial to build your own ISOBlue device is here: 
             <a href="https://github.com/ISOBlue/isoblue-software/blob/master/tutorial/README.md">https://github.com/ISOBlue/isoblue-software/blob/master/tutorial/README.md</a>
@@ -143,6 +143,56 @@ layout: default
         <div class="row">
           <h1>CANdroid</h1> 
           <div class="span8">
+						<p>With the idea of ISOBlue, we intend to simplify and stablize the ISOBUS message collection process even more. Hence, we re-developed
+						and transformed ISOBlue into CANdroid. It uses a commercially available Android tablet, namely, <a href="http://www.htc.com/us/go/buy-now-nexus-9/">Nexus 9</a>,
+						along with two <a href="http://www.8devices.com/products/usb2can">USB2CAN adapters</a> to collect ISOBUS messages.
+						The figure below gives a system overview of CANdroid:</p>
+
+            <p class="text-center">
+              <img src="images/CANdroid_connection.png" width="40%" height="15%"/><br/>
+							Overall system connection for CANdroid
+            </p>
+
+						<p>There are a couple of reasons for choosing Nexus 9:</p>
+
+						<ul>
+							<li>Android is open-source</li>
+							<li>Touchscreen is great for data visualization and interaction</li>
+							<li>The tablet offers great processing power</li>
+							<li>Bluetooth, WiFi and cellular functionalities are already built in</li>
+						</ul>
+
+						<p>One of the most critical components of ISOBlue is the ISOBUS kernel module. We developed this Linux kernel module on top of socketCAN
+						to handle address claiming, packet filtering, socket configuration for ISOBUS exclusively. It attracted interests in the Linux CAN community.
+						(See this post) However, the <a href="https://github.com/kurt-vd/linux/blob/j1939d-v3.15/Documentation/networking/j1939.txt">J1939 kernel module</a>
+						seems to be more promising in merging into the main Linux kernel. Hence, we started to utilize this module in our development process.</p>
+
+						<p>Moreover, since Android relies on Java heavily for its app development. It is important to fill the gap in between the low-level kernel module
+						and the high level app. <a href="https://github.com/OATS-Group/CANdroid-lib">CANdroid-lib</a>, an open-source Java Native Interface library is
+						thus developed for this purpose. The figure below shows how CANdroid-lib enables communication between low-level J1939 kernel module and a high-level
+						Android application:</p>
+
+            <p class="text-center">
+              <img src="images/CANdroid_kernel_interaction.png" width="15%" height="25%"/><br/>
+							With CANdroid-lib, a high-level Android app can communicate with kernel modules without kernel programming
+            </p>
+
+						<p>Finally, an Android application, <a href="https://github.com/OATS-Group/CANdroid-app">CANdroid-app</a> is written
+					 	for initiating the ISOBUS message collection and handling data uploading to the Cloud.</p>
+
+            <p class="text-center">
+              <img src="images/CANdroid_app_screenshot.png" width="20%" height="55%"/><br/>
+							Screenshot of CANdroid Logger
+            </p>
+
+						</div>
+						<div class="span4">
+							<img src="images/CANdroid_enclosure_top_crop.jpg" width="20%" height="50%" /><br>
+							<p class="text-center">CANdroid enclosure</p>
+							<img src="images/usb2can_top.jpg" /><br>
+							<p class="text-center">8devices USB2CAN adapter</p>
+						</div>
+
           </div>
         </div>
       </div>

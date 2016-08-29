@@ -9,12 +9,12 @@ Here are the slides from ISOBlue day at Purdue on April 29, 2014:
 
 |      Presenter   |  |  |  Download  |
 |:----------------:+--+--+:-----:|
-|  Jim Krogmeier   |  |  |  [ Open Ag Technology and Systems Group Introduction](/images/2014-04-29_ISOBlueDay/JVK_on_OpenATK_Group.pdf)       |
-|  Aaron Ault      |  |  |  [ ISOBlue History and Current Status](/images/2014-04-29_ISOBlueDay/2014-04-29_ISOBlue_History_current_status.pdf) |
-|  Alex Layton     |  |  |  [ Libraries, Buffering, and Yield Monitor Demo](/images/2014-04-29_ISOBlueDay/ISOBlueDemo.pdf)                     |
-|  Hani Almansouri |  |  |  [ RTK GPS ](/images/2014-04-29_ISOBlueDay/RTK-GPS ISOBlue.pdf) |
-|  Sam Noel        |  |  |  [ Soil Telemetry and Weather Station ](/images/2014-04-29_ISOBlueDay/Soil Telemetry Weather Station.pdf) |
-|  Aaron Ault      |  |  |  [ ISOBlue Future and Funding](/images/2014-04-29_ISOBlueDay/2014-04-29_ISOBlue_future_and_Funding.pdf) |
+|  Jim Krogmeier   |  |  |  [ Open Ag Technology and Systems Group Introduction](/pdfs/2014-04-29_ISOBlueDay/JVK_on_OpenATK_Group.pdf)       |
+|  Aaron Ault      |  |  |  [ ISOBlue History and Current Status](/pdfs/2014-04-29_ISOBlueDay/2014-04-29_ISOBlue_History_current_status.pdf) |
+|  Alex Layton     |  |  |  [ Libraries, Buffering, and Yield Monitor Demo](/pdfs/2014-04-29_ISOBlueDay/ISOBlueDemo.pdf)                     |
+|  Hani Almansouri |  |  |  [ RTK GPS ](/pdfs/2014-04-29_ISOBlueDay/RTK-GPS ISOBlue.pdf) |
+|  Sam Noel        |  |  |  [ Soil Telemetry and Weather Station ](/pdfs/2014-04-29_ISOBlueDay/Soil Telemetry Weather Station.pdf) |
+|  Aaron Ault      |  |  |  [ ISOBlue Future and Funding](/pdfs/2014-04-29_ISOBlueDay/2014-04-29_ISOBlue_future_and_Funding.pdf) |
 |------------------+--+--+-----|
 
 <br><br>

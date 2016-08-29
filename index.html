@@ -32,7 +32,7 @@ layout: default
             {% for post in site.posts limit: 3 %}
 
                 <h5>{{ post.title }}</h5>
-                {{ post.excerpt | remove: "<p>" | remove: "</p>" }}
+                {{ post.excerpt | markdownify | remove: "<p>" | remove: "</p>" }}
                 <br />
                 <a href="{{ post.url }}">Read more...</a>
             {% endfor %}
@@ -70,7 +70,7 @@ layout: default
             {% for post in site.posts limit: 4 %}
                 <h3>{{post.title}}</h3>
                 {{post.date | date: "%B %-d, %Y" }} 
-                {{post.content}}
+                {{post.excerpt}}
                 <a href="{{site.url}}{{post.url}}">Permalink</a>
                 <hr />
             {% endfor %}

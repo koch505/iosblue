@@ -20,7 +20,7 @@ After the data collection, we parsed the some useful data out using the stored
 ISOBUS data and plotted them.
 
 ![fuel-rate-vs-speed](/images/fr_vs_speed.png) ![fuel-rate-vs-rpm](/images/fr_vs_rpm.png)
-![fuel-rate-vs-ptorpm](/images/fr_ptorpm.png) ![fuel-rate-vs-intantaneous-fuel-rate](/images/fr_ife.png)
+![fuel-rate-vs-ptorpm](/images/fr_vs_ptorpm.png) ![fuel-rate-vs-intantaneous-fuel-rate](/images/fr_vs_ife.png)
 
 Some observations:
 

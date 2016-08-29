@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Testing CANdroid During a Manuare Spreading Session
+title: Testing CANdroid During a Manure Spreading Session
 date: 2016-04-14
-excerpt: We utilized CANdroid to collect ISOBUS data and performed some simple analytics with data. 
+excerpt: We utilized CANdroid to collect ISOBUS data and performed some simple analytics with data.
 ---
 <div class="row" markdown="block">
 <div class="span6" markdown="block">
@@ -33,4 +33,4 @@ and thus resulted in better fuel rate and slightly higher RPM.
 - the same patten happened for the PTO RPM.
 
 We will continue testing CANdroid for its data collection and the Cloud
-integration. Stay tuned! 
+integration. Stay tuned!

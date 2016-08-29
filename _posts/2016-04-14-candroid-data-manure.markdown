@@ -30,7 +30,7 @@ number of passes we mentioned earlier.
 - the engine RPM (PGN 61444) went up in a slope as fuel rate went down. This
 makes since as the manure was depleting, the weight of the manure tank reduced
 and thus resulted in better fuel rate and slightly higher RPM.
-- the same patten happened for the PTO PRM.
+- the same patten happened for the PTO RPM.
 
 We will continue testing CANdroid for its data collection and the Cloud
 integration. Stay tuned! 

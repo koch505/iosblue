@@ -180,6 +180,24 @@ layout: default
 						<p>Finally, an Android application, <a href="https://github.com/OATS-Group/CANdroid-app">CANdroid-app</a> is written
 					 	for initiating the ISOBUS message collection and handling data uploading to the Cloud.</p>
 
+						<p>This <a href="https://github.com/OATS-Group/CANdroid">page</a> gives a brief tutorial on the process of making a CANdroid.</p>
+
+						<p>In addition to CANdroid, we are currently setting up a data uploading and processing architecture that enables us to explore
+						an efficient and scalable way to handle high volume machine data. The architecture is referred as the
+						<a href="http://milinda.pathirage.org/kappa-architecture.com/">>Kappa Archiecture</a>. In short, this architecture treats data as
+						streams to encourage a continuous flow of data. We put CANdroid as the starting point of the data stream. It initiates the ISOBUS data collection
+						process and uploads the collected data to a stream based data processing system called
+						<a href="http://kafka.apache.org/">Kafka database</a>. After the database processed the ISOBUS data, it then forwards the data to
+						a <a href="https://github.com/OADA/oada-api-server">OADA API server</a> which is an implementation of the
+						<a href="http://openag.io/">Open Agricultural Data Alliance formats and API</a>. The figure below shows CANdroid's integration within the Kappa Architecture:</p>
+
+            <p class="text-center">
+              <img src="images/kappa_arch_top.png"/><br/>
+							The Kappa Architecture
+            </p>
+
+						<p>This architecture is still under testing and there will be a lot more updates.</p>
+
 					</div>
 
 						<div class="span4">

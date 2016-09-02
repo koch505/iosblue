@@ -24,6 +24,11 @@ layout: default
           <p>
             ISOBlue is part of the <a href="http://openagtoolkit.org">Open Ag ToolKit</a> initiative.
           </p>
+
+          <p>Recently, we put our effort in re-developing ISOBlue into a new ISOBUS
+					message collection and processing platform called CANdroid. We added a
+					<a href="#candroid">new section</a> describing this project. Please check it out!</p>
+
         </div>
         <div class="span4 well" style="padding-top: 0px">
           <section id="news">
@@ -40,7 +45,7 @@ layout: default
         </div>
       </div>
     </header>
-  
+ 
     <!-- Main content -->
     <section id="overview" style="margin-top: 0px; margin-bottom: 0px;">
       <div class="page-header" style="margin-top: 0px; margin-bottom: 0px;">
@@ -189,7 +194,9 @@ layout: default
 						process and uploads the collected data to a stream based data processing system called
 						<a href="http://kafka.apache.org/">Kafka database</a>. After the database processed the ISOBUS data, it then forwards the data to
 						a <a href="https://github.com/OADA/oada-api-server">OADA API server</a> which is an implementation of the
-						<a href="http://openag.io/">Open Agricultural Data Alliance</a> formats and API. The figure below shows CANdroid's integration within the Kappa Architecture:</p>
+						<a href="http://openag.io/">Open Agricultural Data Alliance</a> formats and API. Last but not least,
+						a high-level application could retrieve the data either from the Kafka database or from the OADA API
+						server to further process and visualize the data. The figure below shows CANdroid's integration within the Kappa Architecture:</p>
 
             <p class="text-center">
               <img src="images/kappa_arch_top.png"/><br/>
@@ -216,15 +223,18 @@ layout: default
     <section id="documentation">
       <div class="page-header">
         <h1>Documentation</h1>
-        <p>To start, <a href="#hardware">get some hardware</a>, then follow the <a href="https://github.com/ISOBlue/isoblue-software/blob/master/tutorial/README.md">tutorial</a>
-        to get things running.</p>
+        <p>To build ISOblue, first get some hardware<a href="#isoblue">in this section</a>,
+				then follow the <a href="https://github.com/ISOBlue/isoblue-software/blob/master/tutorial/README.md">tutorial</a>
+      	to get things running.</p>
         <p>There are several functional specifications.  If you are
         unfamiliar with functional specs, <a href="http://www.joelonsoftware.com/articles/fog0000000036.html">Joel Spolsky</a> is the best person to explain it.
         <ul>
           <li><a href="https://docs.google.com/document/d/1e1Zwh11J8NgPeUelKOSSEOov4fEM4cdEqaN1leu4hYU/edit?usp=sharing">Overall Functional Specs</a></li>
           <li><a href="https://docs.google.com/document/d/1e1Zwh11J8NgPeUelKOSSEOov4fEM4cdEqaN1leu4hYU/edit?usp=sharing">Packet Filter Functional Specs</a></li>
         </ul></p>
-        <p>For an enclosure, we're currently waiting for revision 2 to come back from the printers.  Look for pictures and 3D printing files here soon.</p>
+
+				<p>To build CANdroid, check out the description in the <a href="#candroid">CANdroid section</a> and follow
+				this <a href="https://github.com/OATS-Group/CANdroid">tutorial</a> to help you get started</p>
 
       </div>
     </section>

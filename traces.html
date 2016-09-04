@@ -6,7 +6,7 @@ layout: default
     <section id="intro">
       <div class="page-header">
         <h1>ISOBUS Message Logs</h1>
-        <p>We'll be posting all our raw ISOBUS message logs here, with information about the 
+        <p>We'll be posting all our raw ISOBUS message logs here, with information about the
         tractor and situation they came from.  Please <a href="mailto:info@isoblue.org">send us your log files</a>
         and we'll post them here for fellow travelers.</p>
         <p>In the near future, we're going to turn this into a query-able database.  For now, we'll post files
@@ -14,13 +14,12 @@ layout: default
       </div>
     </section>
 
-    <section id="cnh">
+    <section id="data">
       <div class="page-header">
-        <h2>CNH Equipment</h2>
+        <h2>Log Data</h2>
         
-        <hr>
         <div class="row well">
-          <h3>2011 Case 6088 Combine</h3>
+          <h5>2011 Case 6088 Combine</h5>
         
           <p>
             <a href="data/2013-10-29_Case6088.zip">2013-10-29_Case6088.zip</a>: 
@@ -56,26 +55,40 @@ layout: default
             </ul>
           </p>
         </div>
-        <hr>
+
         <div class="row well">
           <p>
             <h5>2008 Case 8010 Combine</h5>
 							<ul>
-								<li><a href="AultIOSBUSlogs7-2016-converted.zip">AultIOSBUSlogs7-2016-converted.zip</a>: 
-									this is a zip file for an entire season of wheat harvest.</li>
-							</ul>
-          </p>
-        </div>
-        <div class="row well">
-          <p>
-            <h5>Tractor</h5>
-							<ul>
-								<li><a href="2016-07-25_160HaulingManure-converted.zip">2016-07-25_160HaulingManure-converted.zip</a>:
-									this is a zip file for a manure spreading session.</li>
+								<li>
+									<p><a href="data/AultIOSBUSlogs7-2016-converted.zip">AultIOSBUSlogs7-2016-converted.zip</a>: 
+									this is a zip file for 7 days of wheat harvest from the monitor of the 8010 combine.
+									Each day's data files are in a separate folder. For the data files that have extension
+									.MSG and .GPS are particularly interesting.</p>
+									<p>.MSG represents the raw CAN stream and .GPS represents the GPS messages.</p>
+									<p>We wrote a simple converter in python (under processer/ folder in the zipped file) that will
+									put the raw CAN stream into a readable format that consists of timestamp, bus info, priority,
+									source address, pgn and data payload.</p>
+								</li>
+								<li>
+									<a href="data/Ault-Farm-3-capture-converted.zip">Ault-Farm-3-capture-converted.zip</a>
+								</li>
 							</ul>
           </p>
         </div>
 
+        <div class="row well">
+          <p>
+            <h5>Tractor</h5>
+							<ul>
+								<li>
+									<a href="data/2016-07-25_160HaulingManure-converted.zip">2016-07-25_160HaulingManure-converted.zip</a>:
+									this is a zip file for the data collected for 3 days of manure hauling. Each day's data files are in a
+									separate folder. The converter that par
+								</li>
+							</ul>
+          </p>
+        </div>
 
       </div>
     </section>

@@ -1,6 +1,0 @@
-User-agent: *
-
-Disallow: /bootstrap/
-Disallow: /bootswatch/
-Disallow: /css/
-Disallow: /index.js

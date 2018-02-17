@@ -1,0 +1,7 @@
+{
+  "docs": {
+    "Hardware": ["bom"],
+    "Software": ["background", "prereq", "build"],
+    "Data": ["data"]
+  }
+}

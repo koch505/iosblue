@@ -9,13 +9,13 @@
 const users = [
   {
     caption: 'ADM Purdue',
-    image: '/isoblue-site/img/abe.gif',
+    image: 'img/abe.gif',
     infoLink: 'https://engineering.purdue.edu/ABE/research/facilities',
     pinned: true,
   },
   {
     caption: 'ECE Purdue',
-    image: '/isoblue-site/img/ece.gif',
+    image: 'img/ece.gif',
     infoLink: 'https://engineering.purdue.edu/ECE',
     pinned: true,
   },
@@ -25,8 +25,8 @@ const siteConfig = {
   title: 'ISOBlue 2.0' /* title for your website */,
   tagline: 'Free the Ag Machinery Data',
   url: 'https://isoblue.org' /* your website url */,
-  baseUrl: '/isoblue-site/' /* base url for your project */,
-  projectName: 'isoblue-site',
+  baseUrl: '/' /* base url for your project */,
+	cname: 'www.isoblue.org',
   headerLinks: [
     {doc: 'bom', label: 'Docs'},
     {blog: true, label: 'Blog'},

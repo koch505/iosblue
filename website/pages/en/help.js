@@ -18,7 +18,7 @@ class Help extends React.Component {
     const supportLinks = [
       {
         content:
-          'Learn more using the [documentation on this site.](/test-site/docs/en/bom.html)',
+          'Learn more using the [documentation on this site.](docs/bom.html)',
         title: 'Browse Docs',
       },
       {
@@ -27,7 +27,7 @@ class Help extends React.Component {
         title: 'Join our mailing list',
       },
       {
-        content: 'Read our most recent [blogs.](/isoblue-site/blog)',
+        content: 'Read our most recent [blogs.](blog)',
         title: 'Stay up to date',
       },
     ];

@@ -12,7 +12,7 @@ connectors and antennas sticking out.
 <!--truncate-->
 
 Last Friday, we received one ISOBlue 2.0 back and it looked like this:
-![broken antenna](assets/antenna_issue.jpg)
+![broken antenna](../../../assets/antenna_issue.jpg)
 
 The antennas are both snapped off. Broken antennas mean no cellular connection
 for ISOBlue 2.0.

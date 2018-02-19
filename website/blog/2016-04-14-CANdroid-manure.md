@@ -11,10 +11,7 @@ spreading in the field.
 <!--truncate-->
 
 CANdroid sitting in the back of the tractor:
-
-![CANdroid deployed in a tractor](/isoblue-site/img/CANdroid_in_field.jpg)
+![CANdroid deployed in a tractor](assets/CANdroid_in_field.jpg)
 
 CANdroid collecting ISOBUS data while the tractor is running:
-![CANdroid collecting data](/isoblue-site/img/CANdroid_running.jpg)
-
-We will have another blog post on looking into the data collected.
+![CANdroind running](assets/CANdroid_running.jpg)

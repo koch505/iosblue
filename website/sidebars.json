@@ -1,7 +1,8 @@
 {
   "docs": {
+    "Background": ["howitworks"],
     "Hardware": ["bom"],
-    "Software": ["background", "prereq", "build"],
+    "Software": ["build", "flashing"],
     "Data": ["data"]
   }
 }

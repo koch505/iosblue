@@ -10,6 +10,8 @@
     "build": "Build Instructions",
     "data": "How to Read the Collected Data",
     "doc5": "Fifth Document",
+    "flashing": "Flashing an Image",
+    "howitworks": "How ISOBlue 2.0 Works?",
     "intro": "Getting Started",
     "prereq": "Prerequisites",
     "Docs": "Docs",
@@ -18,6 +20,7 @@
     "Mailing List": "Mailing List",
     "Public Data": "Public Data",
     "Help": "Help",
+    "Background": "Background",
     "Hardware": "Hardware",
     "Software": "Software",
     "Data": "Data"

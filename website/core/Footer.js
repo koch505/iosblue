@@ -35,11 +35,11 @@ class Footer extends React.Component {
           </a>
           <div>
             <h5>Docs</h5>
-            <a href={this.docUrl('bom.html')}>
-              Bill of Materials 
+            <a href={this.docUrl('howitworks.html')}>
+							How it Works?
             </a>
-            <a href={this.docUrl('prereq.html')}>
-							Prerequisites
+            <a href={this.docUrl('bom.html')}>
+              Bill of Materials
             </a>
             <a href={this.docUrl('build.html')}>
 							Software Build Instructions

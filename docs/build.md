@@ -5,17 +5,18 @@ title: Build Instructions
 
 ## Prerequisites
 
-Since the building process is very customizable, if you do not have similar
-experience, it is recommended that you read through some of the [Yocto project
-documentations][1] to get started. If you do not have much experience in Linux,
-you can still download a [prebuilt ISOBlue image][2] and follow the [flashing
-instructions](flashing.md) to get yourself an ISOBlue.
+The building process for ISOBlue 2,0 is very customizable. If you do not have
+similar experience, it is recommended that you read through some of the [Yocto
+project documentations][1] to get started. If you do not have much experience in
+Linux, you can still download a [prebuilt ISOBlue image][2] and follow the
+[flashing instructions](flashing.md) to get yourself an ISOBlue.
 
 ### Machine Requirement
 
 For building an ISOBlue image, a powerful, multi-core host machine is highly
-recommended. There should be a minimum of 60GB of free disk place and 4GB of
-RAM. The build procedure is currently only tested on Ubuntu 16.10.
+recommended. There should be a minimum of 60GB of free disk place, 4GB of RAM
+and a decent Internet connection. The build procedure is currently only tested
+on Ubuntu 16.10.
 
 <!--truncate-->
 
@@ -34,7 +35,7 @@ texinfo chrpath
 
 cd /usr/lib; sudo ln -s libcrypto++.so.9.0.0 libcryptopp.so.6
 ```
-We would also need to install [repo][3]:
+We would also need to install [repo][3] for source synnchronizations:
 ```
 sudo apt-get install repo
 ```
@@ -44,7 +45,7 @@ You need to simply do:
 ```
 mkdir isoblue-core
 cd isoblue-core
-repo init -u https://github.com/ISOBlue/isoblue-image -b isoblueImage
+repo init -u https://github.com/ISOBlue/isoblue-image -b master
 repo sync
 ```
 After getting the ISOBlue image source, you can do:
@@ -58,13 +59,28 @@ following items configured for the **current** session:
 
 You will need to source `export` again to have the right configurations.
 
+### Editing isoblue.conf
+Before building the image, edit `isoblue.conf` under `top-level-directory`,
+i.e., `isoblue-core` in our instruction:
+
+The settings you need to change is the `ID` and `MACHINEID`.
+
+* For `ID`, please set your `ID` to be 5 or greater for now as we already have 5
+  of them built and any id that is less than 5 will cause some grief on our end
+(see [How ISOBlue 2.0 Works?](howitworks.md)). This is only a temporary solution
+and will get changed in the future.
+* For `MACHINEID`, you can append a string of your choice to the configured `ID`.
+The string can only contain letters.
+
+
 ## Building
 Given that you are in the `build` directory, run:
 ```
-bitbake console-isoblue-image
+bitbake -r ../isoblue.conf console-isoblue-image
 ```
-This first build usually takes of hours (it involves a lot of downloading and
-compiling). **Be patient!**
+This command reads in the configuration you set in the `isoblue.conf` earlier
+and use the settings to build an image. This first build usually takes of hours
+(it involves a lot of downloading and compiling). **Be patient!**
 
 After a successful build, you should have the following
 directory structure for for your `deploy` directory:

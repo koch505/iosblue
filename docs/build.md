@@ -5,7 +5,7 @@ title: Build Instructions
 
 ## Prerequisites
 
-The building process for ISOBlue 2,0 is very customizable. If you do not have
+The building process for ISOBlue 2.0 is very customizable. If you do not have
 similar experience, it is recommended that you read through some of the [Yocto
 project documentations][1] to get started. If you do not have much experience in
 Linux, you can still download a [prebuilt ISOBlue image][2] and follow the
@@ -35,7 +35,7 @@ texinfo chrpath
 
 cd /usr/lib; sudo ln -s libcrypto++.so.9.0.0 libcryptopp.so.6
 ```
-We would also need to install [repo][3] for source synnchronizations:
+We would also need to install [repo][3] for source synchronizations:
 ```
 sudo apt-get install repo
 ```

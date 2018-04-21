@@ -1,5 +1,5 @@
 ---
-title: CANdroid During a Manure Spreading Session 
+title: CANdroid During a Manure Spreading Session
 author: Yang Wang
 authorURL: https://github.com/wang701
 ---

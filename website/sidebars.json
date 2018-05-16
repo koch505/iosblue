@@ -2,7 +2,7 @@
   "docs": {
     "Background": ["howitworks"],
     "Hardware": ["bom"],
-    "Software": ["build", "flashing"],
+    "Software": ["build", "flashing", "setup"],
     "Data": ["data"]
   }
 }

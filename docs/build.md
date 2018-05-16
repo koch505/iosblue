@@ -65,13 +65,11 @@ i.e., `isoblue-core` in our instruction:
 
 The settings you need to change is the `ID` and `MACHINEID`.
 
-* For `ID`, please set your `ID` to be 5 or greater for now as we already have 5
-  of them built and any id that is less than 5 will cause some grief on our end
-(see [How ISOBlue 2.0 Works?](howitworks.md)). This is only a temporary solution
-and will get changed in the future.
+* For `ID`, you can use any combination from 011 to 999 and this will be your
+ISOBlue's unique `ID` (000 to 010 are already taken). This is only a temporary
+solution and will get changed in the future.
 * For `MACHINEID`, you can append a string of your choice to the configured `ID`.
-The string can only contain letters.
-
+The string can only contain letters. The default string is `ib`.
 
 ## Building
 Given that you are in the `build` directory, run:

@@ -3,39 +3,40 @@ id: setup
 title: Setting It Up
 ---
 
-There are a few steps to perform before ISOBlue 2.0 can send data to the Cloud.
-The following sections assume that you have already flashed an ISOBlue image to
-the ISOBlue hardware. They also serve as a basic debugging steps for anyone who
-cannot get ISOBlue running as expected.
+There are a few steps to perform before ISOBlue 2.0 can collect and send data to
+the Cloud.  The following sections assume that you have already flashed an
+ISOBlue 2.0 image to the assembled hardware. They also serve as a basic
+debugging steps for a malfunctioning ISOBlue 2.0.
 
 <!--truncate-->
 
-ISOBlue 2.0 manages the scripts and programs using [systemd][1]. You can view all the
-services running by using this command:
+## Notes on systemd
+
+ISOBlue 2.0 manages the scripts and programs using [systemd][1]. You can view
+all the services running by using this command:
 ```shell
 root@localhost:~# systemctl status
 ```
-You can replace `status` with `enable`, `disable`, `start` and `stop` plus a
-service name to perform different actions on a service.
+You can replace `status` with `enable`, `disable`, `start`, `stop`, `restart`,
+etc., plus a service name to trigger different actions on a service.
 
 You can check the status and view the log of a service by running:
 ```shell
 root@localhost:~# journalctl -u name-of-service
 ```
+Now, let's dive into configuring your ISOBlue 2.0.
 
-## Check Internet Connectivity
+## 1. Check Internet Connectivity
 
 ISOBlue 2.0 uses [qmicli][5] to setup the Internet connections. The network
 device is specified as `wwan0`. There are two ways to check for Internet
 connectivity:
 
-1. `ping`
-```shell
-ping google.com
-```
-Check if you could get any responses.
+* `ping`
 
-2. `ifconfig`
+Check if you could get any responses after running `ping google.com`.
+
+* `ifconfig`
 
 After you run `ifconfig`, you should be able to see that `wwan0` is already
 associated with an IP address.
@@ -46,53 +47,88 @@ down to one. This process sometimes takes up to several minutes.
 Once you are certain that your ISOBlue 2.0 has Internet, move on to the next
 section.
 
-## Setup SSH Connections
+### In case it doesn't connect ...
+
+A few things to check:
+
+* Are the antennas installed?
+* If the antennas are installed, are all connections (uFl to SMA, SMA to SMA)
+tightened?
+* Is the SIM card properly inserted?
+* If the SIM card is installed, are you certain you have a valid data plan?
+* Are you inside or outside? If you are inside, make sure your antennas are
+  closer to the windows.
+
+If your answers are yes to the first four of these questions, then there are a
+few things to try:
+* Run
+```shell
+root@localhost:~# udevadm trigger
+```
+This triggers the udev rule that setup the cellular module to connect to the
+Internet. Check using `ifconfig` to see if this helps.
+* If the above doesn't help, run
+```shell
+root@localhost:~# qmicli -p -d /dev/cdc-wdm0 --wds-start-network=Broadband \
+                  --client-no-release-cid
+```
+This should return message like `Network has started`. This means you have
+already registered onto your network provider. Then run the following command
+to obtain a valid IP:
+```shell
+root@localhost:~# dhclient wwan0
+```
+
+## 2. Setup SSH Connections
 
 [SSH][6] plays a critical role for debugging and data streaming to Cloud in
 ISOBlue 2.0. We have provided two default SSH related `systemd` services:
 
-1. *ssh-forward.service*
+* *ssh-forward.service*
 
 This service performs SSH port forwarding from your ISOBlue 2.0's local SSH port
-to a port on a remote machine. By default, the remote machine username and
-domain is `isoblue2@vip4.ecn.purdue.edu`.
+to a port on a remote machine for debugging purposes. By default, the remote
+machine username and domain is `isoblue2@vip4.ecn.purdue.edu`.
 
-2. *tunnel.service*
+* *tunnel.service*
 
 This service provides SSH tunneling for mirroring Kafka clusters between ISOBlue
 2.0 and the remote cluster. By default, the remote cluster username and domain is
 `yang@cloudradio39.ecn.purdue.edu`.
 
-You can change the remote machine and cluster any time.
+Both services are located in `/lib/systemd/system`. You can change the remote
+machine and cluster domains to your custom domains. You can use one remote
+machine for both debugging as well as receiving Kafka messages. The following
+steps assume that you have one debugging machine and one cluster machine that
+has Kafka running.
 
 ### Generate SSH Keys
 
-Run the following command to generate a SSH public key and a private key (**use
-default location and use no password**):
+Run the following command to generate a set of SSH keys (**use default location
+and use no password**):
 ```shell
 root@localhost:~# ssh-keygen
 ```
-Once the keys are generated, they will be located in `~/.ssh`. We would need
-the content in `id_rsa.pub`.
+Once the keys are generated, they will be located in `~/.ssh`.
 
 ### Setup SSH Forward
 
-Add the content of `id_rsa.pub` on ISOBlue 2.0 to your remote machine's
-`authorized_keys`.
+Add the content of `~/.ssh/id_rsa.pub` from ISOBlue 2.0 to your remote debugging
+machine's `~/.ssh/authorized_keys`.
 
 Then you will run this on ISOBlue:
 ```shell
 root@localhost:~# ssh -NR *:SSHPORT:localhost:22 username@domain1
 ```
-You will be prompt to type yes or no. Type yes to add the remote host to your
+You will be prompted to type yes or no. Type yes to add the remote host to your
 `known_hosts`. You only need to do it manually once.
 
 Note: `SSHPORT` is specified when you are building your image.
 
 ### Setup SSH Tunnel
 
-Add the content of `id_rsa.pub` on ISOBlue 2.0 to your remote machine's
-`authorized_keys`.
+Add the content of `~/.ssh/id_rsa.pub` on ISOBlue 2.0 to your remote machine's
+`~/.ssh/authorized_keys`.
 
 Then you will run this on ISOBlue:
 ```shell
@@ -100,29 +136,24 @@ root@localhost:~/# ssh -NL localhost:BROKERPORT:domain2:9092 -L \
                   localhost:ZKPORT:domain2:2181 \
                   username@domain2
 ```
-You will be prompt to type yes or no. Type yes to add the remote host to your
+You will be prompted to type yes or no. Type yes to add the remote host to your
 `known_hosts`. You only need to do it manually once.
 
-Notes:
+Note: `BROKERPORT`, `ZKPORT` are also specified when you build your image.
 
-* `BROKERPORT`, `ZKPORT` are also specified when you build your image.
-* `domain1` and `domain2` can be the same machine but `domain2` needs to have
-Kafka broker and a zookeeper running.
-
-## Check Running Services
+## 3. Verify Running Services
 
 There are a few key `systemd` services that will be running after flashing
-process is completed and after each boot:
+process is completed as well as after each boot.
 
-1. *gpsd.service*
+* *gpsd.service*
 
 This service connects to the USB GPS module and enables clients to fetch GPS
 related data. When you use `journalctl -u gpsd` to check its logs, you usually
 see useful on whether this service is working or not. Typically, if it is
-working, you will be see some words like `time to report a fix ...` or something
-along the line.
+working, log message `time to report a fix ...` will occur once per second.
 
-2. *broker.service* and *zookeeper.service*
+* *broker.service* and *zookeeper.service*
 
 The combination of these two services is the **heart** of ISOBlue 2.0. **No
 broker/zookeeper, no logging.** The *broker* and *zookeeper* bring up and
@@ -155,13 +186,23 @@ You can keep checking whether the size of the file changes or not. This will
 quickly tell you statuses of the *broker*, *zookeeper* and other logging
 services.
 
-3. *mirror.service*
+* *mirror.service*
 
 This service uses the SSH tunnel setup to forward `debug` and `remote` topic
 Kafka message to a remote Kafka cluster residing in an OATS cluster. It requires
 network connectivity for this service to work.
 
-4. *can-watchdog.service*
+* *get-pgns.service*
+
+This service runs `get_pgns.sh` script located in `/opt/bin`. The script fetches
+a file that contains the list of PGNs and replaces the `/opt/pgns` every 5
+seconds. This file will be later parsed into a fitler by a program that logs CAN
+data based on this filter.
+
+You can change the remote file location in `get_pgns.sh` as you wish. It also
+requires a network connectivity to work.
+
+* *can-watchdog.service*
 
 This service watches the presence of CAN activities. It is **not** enabled by
 default. You can keep it disabled when you are configuring an ISOBlue 2.0 for
@@ -173,9 +214,16 @@ You can also check the statuses and perform actions on all the other ISOBlue 2.0
 specified services. The name and all `systemd` service file can be found
 [here][4].
 
+## Ok, What Now?
+
+At this point, you should have a fully functional ISOBlue 2.0. Can you see your
+ISOBlue 2.0 showing up on [where is my ISOBlue][7]?
+
+
 [1]: https://www.freedesktop.org/wiki/Software/systemd/
 [2]: https://kafka.apache.org/
 [3]: https://kafka.apache.org/documentation/#configuration
 [4]: https://github.com/ISOBlue/meta-isoblue/tree/master/recipes-core/systemd/systemd
 [5]: https://www.freedesktop.org/software/libqmi/man/1.8.0/qmicli.1.html
 [6]: https://www.ssh.com/ssh/
+[7]: http://wheres-my-isoblue.oatsgroup.org/

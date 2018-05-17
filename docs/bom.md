@@ -12,7 +12,7 @@ You can find our most updated BOM over [here][1].
 The cellular module we picked is a [Telit LE910-NAG][2]. It is a module that
 only supports AT&T network. The [LE910 family][3] has alternative modules that
 offer support for multiple cellular providers. Please check the data coverage
-of the area you want to put your device in for picking the correct cellular
+of the area you want to deploy your device for picking the correct cellular
 module. Note that you also need a cellular data plan and a SIM card to ensure
 network connectivity.
 

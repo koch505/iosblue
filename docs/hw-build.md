@@ -3,6 +3,7 @@ id: hwbuild
 title: Hardware Assembly
 ---
 
-Under construction.
+You can currently follow this [document][1] for a brief overview of the assembly
+process.
 
-<!--truncate-->
+[1]: https://docs.google.com/presentation/d/16e-JRXWBPtQUBTHuujsORum-DFPcxOdyXgpgDRsyU5s/edit?usp=sharing

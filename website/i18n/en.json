@@ -8,6 +8,7 @@
     "bom": "Hardware Bill of Materials",
     "build": "Build Instructions",
     "data": "How to Read the Collected Data",
+    "deploy": "Deployment",
     "flashing": "Flashing an Image",
     "howitworks": "How ISOBlue 2.0 Works?",
     "hwbuild": "Hardware Assembly",

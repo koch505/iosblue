@@ -1,7 +1,7 @@
 {
   "docs": {
     "Background": ["howitworks"],
-    "Hardware": ["bom", "hwbuild"],
+    "Hardware": ["bom", "hwbuild", "deploy"],
     "Software": ["build", "flashing", "setup"],
     "Data": ["data"]
   }

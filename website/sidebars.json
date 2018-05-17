@@ -3,6 +3,6 @@
     "Background": ["howitworks"],
     "Hardware": ["bom", "hwbuild", "deploy"],
     "Software": ["build", "flashing", "setup"],
-    "Data": ["data"]
+    "Data": ["public-data", "data"]
   }
 }

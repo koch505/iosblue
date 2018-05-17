@@ -1,6 +1,6 @@
 ---
-id: data 
-title: How to Read the Collected Data 
+id: data
+title: How to Read Data
 ---
 
-These are the steps to read the data.
+Under construction.

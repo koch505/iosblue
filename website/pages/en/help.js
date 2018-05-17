@@ -27,7 +27,7 @@ class Help extends React.Component {
         title: 'Join our mailing list',
       },
       {
-        content: 'Read our most recent [blogs.](blog)',
+        content: 'Read our most recent [blogs](blog).',
         title: 'Stay up to date',
       },
     ];

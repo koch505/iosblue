@@ -32,7 +32,6 @@ const siteConfig = {
     {blog: true, label: 'Blog'},
     {href: 'https://github.com/ISOBlue', label: 'Github'},
 		{href: 'https://groups.google.com/forum/?fromgroups#!forum/isoblue', label: 'Mailing List'},
-		{href: 'http://cloudradio39.ecn.purdue.edu/', label: 'Public Data'},
     {page: 'help', label: 'Help'}
   ],
   users,

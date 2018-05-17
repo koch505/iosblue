@@ -3,7 +3,9 @@ id: flashing
 title: Flashing an Image
 ---
 
-## Things You Will Need
+## Before You Start ...
+
+Here are some stuff you need before you start:
 
 * An microSD card that is at least 4GB.
 * A USB to serial adapter.
@@ -11,11 +13,7 @@ title: Flashing an Image
 * A serial adapter. It would be the best if you get it from [Toradex][1]
 since it needs a correct header to connect to the serial ports on the Ixora
 module.
-* An Ixora board with Apalis iMX6 module properly installed.
-
-**Note: if you want to flash, configure and test your ISOBlue seamlessly, it is
-highly recommended that you install the specified cellular module, SSD, and GPS
-module before the flashing process.**
+* All parts are properly installed.
 
 <!--truncate-->
 
@@ -24,8 +22,8 @@ module before the flashing process.**
 After you follow through the [building instructions](building.md) or download
 the [prebuilt ISOBlue image][2], you should have an image tar ball. You would
 need to extract the tar ball content:
-```
-sudo tar xvf Isoblue2_apalis-imx6_image_2.7b2-YYYYMMDD.tar.bz2
+```shell
+you@yourpc:~$ sudo tar xvf Isoblue2_apalis-imx6_image_2.7b2-YYYYMMDD.tar.bz2
 ```
 
 After extracting process, the extracted directory will look like the following:
@@ -55,8 +53,8 @@ Save the changed file.
 ### Making a Flashable SD card
 
 Use `update.sh` to make a flashable microSD card:
-```
-./update.sh -o /your/sd/card/mntpt
+```shell
+you@yourpc:~/ib-image/rootfs$ ./update.sh -o /yourmicroSDcard/mntpt
 ```
 After the script finishes, you will have a flashable microSD card.
 
@@ -81,26 +79,26 @@ Apalis iMX6 # saveenv
 ```
 * Reset the board and hit any key to stop autobooting. In U-Boot command line,
 do:
-```
+```shell
 Apalis iMX6 # run setupdate
 ```
 and
-```
+```shell
 Apalis iMX6 # run update
 ```
 
 For **Ixora V1.1A**, you can skip the `setenv` and `saveenv` commands. After
 dropping into the U-Boot command line for the first time, do:
-```
+```shell
 Apalis iMX6 # run setupdate
 ```
 and
-```
+```shell
 Apalis iMX6 # run update
 ```
 If the flashing is successful, the device will automatically boot into the
-ISOBlue image. At this point, you can proceed to configure the newly flashed
-ISOBlue 2.0.
+ISOBlue image. Don't turn it off or disconnect anything yet. Please proceed to
+[Setting It Up](setup.md) to configure the newly flashed ISOBlue 2.0.
 
 You can also take a look at [Toradex's instructions][3] for flashing an image as
 this documentaion is referenced heavily upon this resource.

@@ -23,7 +23,11 @@ Java(TM) SE Runtime Environment (build 1.8.0_181-b13)
 Java HotSpot(TM) 64-Bit Server VM (build 25.181-b13, mixed mode)
 ```
 
-### Install libraries and dependencies
+### Install python libraries and dependencies
+
+**Note:** we are still using python2 based dependencies. Therefore, make sure
+when you run `pip`, you are using python2 as your default python and install the
+corresponding python2 dependencies.
 
 * Install kafka-python
 
@@ -38,7 +42,7 @@ To verify the library has been installed correctly, start python shell and run:
 ```python
 from kafka import KafkaConsumer
 ```
-If no error pop up, that means the library is all set.
+If no error pops up, that means the library is all set.
 
 * Install avro
 
@@ -74,10 +78,7 @@ source ~/.profile
 Then this path will be added to your system path **ONLY** for this terminal
 session. To make this permanent, you have to log back out and in again.
 
-To make sure the executables are in the path, try typing in `kafka` in the
-terminal and tab-completing, it should have a number of options. Try
-tab-completing `zookeeper` as well as it should give you a number of options
-too. Make sure you have these executables:
+Make sure you have these executables in your path:
 * `zookeeper-server-start.sh`
 * `kafka-server-start.sh`
 * `kafka-server-stop.sh`
@@ -114,7 +115,7 @@ This directory contains the avro schemas we defined for different message types.
 
 You can transfer the `kafka-logs` directory from your ISOBlue 2.0 device to a
 local directory of your choice. Alternatively, you can download some `kafka-logs`
-from the *Public Data* section from this site to test.
+from the [Public Data](public-data.md) section from this site to test.
 
 ## Setup a zookeeper and a Kafka broker
 

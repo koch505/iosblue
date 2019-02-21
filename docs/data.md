@@ -140,6 +140,13 @@ After these two parameters are set, run this in your terminal:
 ```
 If no error pop up, then an instance of a zookeeper and a broker should be up.
 
+> Be default, the Kafka broker will roll over the current loaded logs after
+a retention period of 7 days (168 hours). There are various retention
+configuration you can set to tailor your retention needs. For example, if you
+set `log.retention.hours=1` to have Kafka delete your current logs and start
+over fresh everytime an hour has passed. For different parameters for changing
+the default retention policy, please consult the [Kafka broker configs][8].
+
 ## Consume Kafka messages
 
 Once you have the zookeeper and broker up, we can start consuming messages from
@@ -204,3 +211,4 @@ by running the custom script:
 [5]: https://avro.apache.org/docs/1.8.1/gettingstartedpython.html
 [6]: http://cloudradio39.ecn.purdue.edu/kafka_2.11-0.10.1.0.tar.gz
 [7]: http://cloudradio39.ecn.purdue.edu/scripts_and_schemas.tar.gz
+[8]: https://kafka.apache.org/documentation/#brokerconfigs

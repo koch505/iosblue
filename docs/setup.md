@@ -192,6 +192,10 @@ This service uses the SSH tunnel setup to forward `debug` and `remote` topic
 Kafka message to a remote Kafka cluster residing in an OATS cluster. It requires
 network connectivity for this service to work.
 
+> Important: make sure that the Kafka broker you'd like to mirror to is setup correctly. 
+>
+> Uncomment and set `advertised.listeners` to `PLAINTEXT://<broker_host_IP:9092>` in your Kafka’s `server.properties` config file. By default the ISOBlue will try to resolve the server's _hostname_ on which the Kafka broker resides. This will fail in most cases and prevent the mirror service from functioning correctly. See [Kafka Listeners - Explained](https://rmoff.net/2018/08/02/kafka-listeners-explained/) for an in-depth discussion about this topic. 
+
 * *get-pgns.service*
 
 This service runs `get_pgns.sh` script located in `/opt/bin`. The script fetches
